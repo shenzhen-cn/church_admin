@@ -12,7 +12,7 @@
         使命青年团契后台
       </div><!-- /.login-logo --> 
       <div class="login-box-body">
-        <form action="<?php echo base_url('login'); ?>" method="post">
+        <form action="<?php echo site_url('login'); ?>" method="post">
           <div class="form-group has-feedback">
             <input type="email" class="form-control" placeholder="账号：" id="admin_name" name="admin_name">
             <span class="fa fa-envelope-o  form-control-feedback"></span>
