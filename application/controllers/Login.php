@@ -97,7 +97,8 @@ class Login extends MY_Controller {
 
 	public function reset_admin_pwd()
 	{
-		$params['pwd2'] = !empty($this->input->post('pwd2')) ? md5(md5($this->input->post('pwd2'))) : "";			
+		$temp_pwd2 = $this->input->post('pwd2');
+		$params['pwd2'] = !empty($temp_pwd2) ? md5(md5($temp_pwd2)) : "";			
 		$params['admin_id']  = $this->input->post('admin_id');
 
 		$url = API_BASE_LINK.'admin_setting/reset_admin_pwd';
