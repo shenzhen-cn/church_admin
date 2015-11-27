@@ -1,0 +1,134 @@
+#-------------------------------------------------------------------------------
+# Turn off directory listings for increased security
+#-------------------------------------------------------------------------------
+Options -Indexes
+
+#-------------------------------------------------------------------------------
+# Turn on following symbolic links.
+#-------------------------------------------------------------------------------
+Options +FollowSymLinks
+
+#-------------------------------------------------------------------------------
+# Some web servers require this for index.php to be removed properly.  You may
+# try your .htaccess with or without the following line.
+# Most work fine with it.
+#-------------------------------------------------------------------------------
+Options -MultiViews
+
+#-------------------------------------------------------------------------------
+# Make index.php the directory index page
+#-------------------------------------------------------------------------------
+DirectoryIndex index.php
+
+#Protect the .htaccess files
+<Files .htaccess>
+  order allow,deny
+  deny from all
+</Files>
+
+#Protect the index.php.sample
+<Files index.php.sample>
+  order allow,deny
+  deny from all
+</Files>
+
+#.htaccess
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # !IMPORTANT! Set your RewriteBase here and don't forget trailing and leading
+  #  slashes.
+  # If your page resides at
+  #  http://www.example.com/mypage/test1
+  # then use
+  # RewriteBase /mypage/test1/
+  # RewriteBase /
+
+  # If your default controller is something other than
+  # "welcome" you should probably change this
+  # RewriteRule ^(welcome(/index)?|index(\.php)?)/?$ / [L,R=301]
+  
+  # Remove /index/ segment on the URL.
+  RewriteRule ^(.*)/index/? $1 [L,R=301]
+  #RewriteRule ^(.*)/index/?$ $1 [L,R=301]
+
+  # Removes trailing slashes (prevents SEO duplicate content issues)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ $1 [L,R=301]
+  #RewriteRule ^(.*)(/+)$ $1 [L,R=301]
+
+  # Remove Multiple slashes in betweeen
+  RewriteCond %{REQUEST_URI} ^(.*)//(.*)$
+  RewriteRule . %1/%2 [R=301,L]
+
+  # Add the file SUFIX (sufix can be set on config.php).
+  # RewriteCond %{REQUEST_FILENAME} !-f
+  # RewriteCond %{REQUEST_FILENAME} !-d
+  # RewriteCond %{REQUEST_URI} !\.html
+  # RewriteRule ^(.+)$ $1\.html [L,R=301]
+
+  # Remove any slash before .html ( to prevent site/.html )
+  # RewriteCond %{REQUEST_URI} \/+\.html$ [NC]
+  # RewriteRule ^(.+)\/+\.html$ $1\.html [L,R=301]
+
+  # Enforce www
+  # If you have subdomains, you can add them to 
+  # the list using the "|" (OR) regex operator
+  #RewriteCond %{HTTP_HOST} !^(www|subdomain) [NC]
+  #RewriteRule ^(.*)$ http://www.domain.tld/$1 [L,R=301]
+
+  # Enforce NO www
+  #RewriteCond %{HTTP_HOST} ^www [NC]
+  #RewriteRule ^(.*)$ http://domain.tld/$1 [L,R=301]
+
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+#----
+#
+## Protect application and system files from being viewed when the index.php is missing
+# RewriteCond $1 ^(application|system|private|logs)
+
+# Rewrite to index.php/access_denied/URL
+# RewriteRule ^(.*)$ index.php/access_denied/$1 [PT,L]
+
+# Allow these directories and files to be displayed directly:
+# RewriteCond $1 ^(index\.php|robots\.txt|favicon\.ico|public|assets|css|js|images)
+
+# No rewriting
+# RewriteRule ^(.*)$ - [PT,L]
+#
+#---
+
+  #-----------------------------------------------------------------------------
+  # use the following line if CI is in the root of the URL.
+  # You may need to use index.php/$1 or index.php?/$1
+  # Try it with or without the ? after index.php to see which works for you.
+  # GoDaddy accounts require the ?
+  # My localhost with XAMPP on Windows also requires the ?
+  # Most hosts work correctly without the ?, so try it without first unless
+  # you know your host requires it.  It is placed here so you will know where
+  # it goes in case you need it.
+  # [NC] = no case - case insensitive
+  # [L] = Last rule, last rewrite for this set of conditions
+  # [QSA] = Query String Append, should be used to prevent all redirects from
+  # going to your default controller, which happens on some server
+  # configurations.
+  #-----------------------------------------------------------------------------
+  #RewriteRule ^(.*)$ index.php?/$1 [NC,L,QSA]
+  RewriteRule ^(.*)$ index.php/$1 [NC,L,QSA]
+</IfModule>
+ 
+#-------------------------------------------------------------------------------
+# If Mod_rewrite is NOT installed go to index.php
+# Remember to use mod_rewrite.c for Linux and mod_rewrite.so for Windows.
+#-------------------------------------------------------------------------------
+<IfModule !mod_rewrite.c>
+#<IfModule !mod_rewrite.so>
+  # If we don't have mod_rewrite installed, all 404's
+  # can be sent to index.php, and everything works as normal.
+  # Submitted by: ElliotHaughin
+ 
+  ErrorDocument 404 /index.php
+</IfModule>
