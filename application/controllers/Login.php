@@ -16,14 +16,15 @@ class Login extends MY_Controller {
 		if ($this->session->userdata('access_token')) {
 
 			$this->session->unset_userdata('access_token');
-			redirect('login','refresh');
+			redirect(base_url('login'),'refresh');
+
 		}else {
 
 			$params['admin_name'] = $this->input->post('admin_name');
 			$params['admin_pwd'] = $this->input->post('admin_pwd');
 			$url = API_BASE_LINK.'adminLogin/checkLogin';
+			var_dump($params);exit;
 			$result = doCurl($url, $params, 'POST');
-			// var_dump($result);exit;
 			if (isset($result) && $result['http_status_code'] == 400 && !empty($params['admin_pwd']))
 			{
 			    $result = json_decode($result['output']);
