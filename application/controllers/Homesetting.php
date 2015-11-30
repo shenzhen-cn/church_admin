@@ -228,7 +228,7 @@ class Homesetting extends MY_Controller {
 		   	
 		   }else {
 	           $book_list = $this->session->userdata('book_list');
-			   $data['book_list'] =  empty(!$book_list)? $book_list : array();
+			   $data['book_list'] =  !empty($book_list)? $book_list : array();
 			   $this->load->view('homeSetting/todayScriptures_view' ,isset($data) ? $data : "");	
 		   }
 
