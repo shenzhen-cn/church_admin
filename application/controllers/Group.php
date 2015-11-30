@@ -163,7 +163,7 @@ class Group extends MY_Controller {
             $params['group_id']         = $this->input->post('group_id') ? $this->input->post('group_id') : "";
             $params['group_name']       = $this->input->post('group_name') ? $this->input->post('group_name') : "";
             $params['group_leader_id']  = $this->input->post('group_leader_id') ? $this->input->post('group_leader_id') : "";
-         
+            $temp_post = $this->input->post();
             if (! empty($group_id)) {
                 $result = doCurl(API_BASE_LINK.'group/find_user_by_group_id?group_id='."$group_id");
 
@@ -183,7 +183,7 @@ class Group extends MY_Controller {
                     show_404();exit();
                 }
             }
-            else if (!empty($this->input->post())) {
+            else if (!empty($temp_post)) {
 
                 $url = API_BASE_LINK.'group/groupEdit';
                 $result = doCurl($url, $params, 'POST');
