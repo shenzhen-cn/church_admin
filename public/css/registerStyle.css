@@ -1,0 +1,31 @@
+        form div em{
+          display: inline-block;
+          font-size: 12px;
+          text-align: center;
+          color: #fff;
+          vertical-align: middle;
+          font-style: normal;
+          width: 53px;
+          height: 15px;
+          line-height: 15px;
+          background: #ffd099
+        }
+
+        form div .active{
+          background-color: #ff6600
+        }
+
+        .msg{
+          line-height: 12px;
+          color: red;
+          float: left;
+          margin-left: 5px;
+          padding-top: 5px; 
+          display: none;
+        }
+
+        .msg i{
+          display: inline-block;
+          vertical-align:middle;
+          height: 20px;
+        }
