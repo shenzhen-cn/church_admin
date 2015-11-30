@@ -160,7 +160,7 @@ class Homesetting extends MY_Controller {
            $data['return_url']['form_key'] = $params['form_key'];
 
            $book_list = $this->session->userdata('book_list');
-		   $data['book_list'] =  empty(!$book_list)? $book_list : array();
+		   $data['book_list'] =  !empty($book_list)? $book_list : array();
 
            $url = API_BASE_LINK.'homeSetting/search_bibile';
            $result = doCurl($url, $params, 'POST');
