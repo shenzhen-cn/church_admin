@@ -217,7 +217,7 @@ class Homesetting extends MY_Controller {
 
 		   	$book_list = $this->session->userdata('book_list');
 
-		   	$new_book_list = empty(!$book_list) ?  $book_list : array();
+		   	$new_book_list = !empty($book_list) ?  $book_list : array();
 		   	array_push($new_book_list, $params);
 
 		   	$this->session->set_userdata('book_list' , $new_book_list);
