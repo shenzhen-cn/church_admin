@@ -73,7 +73,7 @@ class Homesetting extends MY_Controller {
 
 				$url = API_BASE_LINK.'homeSetting/notice_groups';
 				$result = doCurl($url, $params, 'POST');
-				// var_dump($result);exit;
+				var_dump($result);exit;
 				if ($result && $result['http_status_code'] == 200) {
 
 					$content  = json_decode($result['output']);
