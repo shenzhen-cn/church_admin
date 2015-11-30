@@ -14,7 +14,7 @@ class Login extends MY_Controller {
 	public function index() {
 		$access_token = $this->session->userdata('access_token');
 		if ($access_token) {
-
+				// sdfsdfj
 			$this->session->unset_userdata('access_token');
 			redirect(base_url('login'),'refresh');
 

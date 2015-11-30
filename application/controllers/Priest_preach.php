@@ -280,8 +280,8 @@ class Priest_preach extends MY_Controller {
     	}else {
 
     		$data =  $this->tq_admin_header_info();
-
-    		if (!empty($this->input->post())) {
+    		$temp_post = $this->input->post();
+    		if (!empty($temp_post)) {
 		 		$params['myEditor']       = $this->input->post('myEditor') ? $this->input->post('myEditor') : "" ;
 		 		$params['admin_id']       = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "";
 		 		$params['document_id']    = $this->input->post('document_id') ? $this->input->post('document_id') : "";
