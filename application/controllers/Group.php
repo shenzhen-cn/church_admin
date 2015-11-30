@@ -83,6 +83,7 @@ class Group extends MY_Controller {
 
         } else{
             $data  = $this->tq_admin_header_info();
+            var_dump($this->session->userdata('admin_id'));exit;
             $params = array();
             $params['addGroupName']  = $this->input->post('addGroupName')
             $params['admin_id']      = $this->session->userdata('admin_id');
