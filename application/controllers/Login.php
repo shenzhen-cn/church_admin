@@ -104,7 +104,7 @@ class Login extends MY_Controller {
 
 		$url = API_BASE_LINK.'admin_setting/reset_admin_pwd';
 		$result = doCurl($url, $params, 'POST');
-
+		var_dump($result);exit();
 		if ($result && $result['http_status_code'] == 200) {
 			$content   = json_decode($result['output']);
 			$status_code    = $content->status_code;
