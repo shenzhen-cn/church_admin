@@ -48,7 +48,7 @@
                                    $group_id =  $v->id;
                                    $group_name =  $v->group_name; ?>
                                 <tr>
-                                  <td><input type="checkbox" name="group_id[]" value="<?php echo $group_id; ?>"></td>
+                                  <td><input type="checkbox" class="flat-red" name="group_id[]" value="<?php echo $group_id; ?>"></td>
                                   <td class="mailbox-name">
                                     <?php echo $group_name; ?>
                                   </td>
