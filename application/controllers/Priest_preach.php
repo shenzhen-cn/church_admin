@@ -188,9 +188,10 @@ class Priest_preach extends MY_Controller {
 	 			// var_dump($result);exit;
 	 			if ($result && $result['http_status_code'] == 200 ) {
 		 			$content = json_decode($result['output']);
-		 			var_dump($content);exit;
+		 			// var_dump($content);exit;
 		 			$status_code = $content->status_code;
-		 			$results = isset($content->results) ? $content->results : "";		
+		 			$results = $content->results;
+		 			$results = isset($results) ? $results : "";		
 		 			if ($status_code == 200 && $results >= 1) {
 
 	 					$this->session->set_flashdata('success', '提交成功！');
