@@ -25,7 +25,8 @@ class Resetpassword extends MY_Controller {
 			$params['confirmNewPwd'] = $this->input->post('confirmNewPwd');
 			$params['admin_id'] = $this->session->userdata('admin_id');
 			// var_dump($params);exit;
-			if (empty($this->input->post())) {
+			$temp_post = $this->input->post();
+			if (empty($temp_post)) {
 				
 				$this->load->view('resetPassword_view',isset($data) ? $data : "");
 			}else{
