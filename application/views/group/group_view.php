@@ -4,6 +4,7 @@
 		$group_leader_id 		= isset($results->group_leader_id) ? $results->group_leader_id : "";		
 		$user_group_id          = isset($user_info->group_id) ? $user_info->group_id : "";
 		$group_users 			= isset($group_users) ? $group_users : "" ;
+//var_dump($group_users);exit;
 		$group_name 			= isset($group_name) ? $group_name : "" ;
 		$week_s_report 			= isset($week_s_report) ? $week_s_report : "" ;
 		// var_dump($week_s_report);exit;
@@ -29,7 +30,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">小组</li>
 			</ol>
 		</section>

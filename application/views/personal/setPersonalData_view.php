@@ -18,7 +18,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li>设置</li>
         <li class="active">修改资料</li>
       </ol>
@@ -35,7 +35,7 @@
               <h3 class="box-title">更改基本资料</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo base_url('personal/upload_photo'); ?>" onSubmit="return check();" method='post' enctype="multipart/form-data">
+            <form role="form" action="<?php echo site_url('personal/upload_photo'); ?>" onSubmit="return check();" method='post' enctype="multipart/form-data">
               <div class="box-body box-profile">
                 <?php if (!empty($admin_info)) {
                   if (! empty($userHeadSrc_info)) { ?>

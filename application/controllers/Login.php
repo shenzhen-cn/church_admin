@@ -45,7 +45,7 @@ class Login extends MY_Controller {
 			    }
 
 			}else if (isset($result) && $result['http_status_code'] == 200) {
-				var_dump($result);exit;
+//				var_dump($result);exit;
 				$result = json_decode($result['output']);
 
 			    $status_code = $result->status_code;

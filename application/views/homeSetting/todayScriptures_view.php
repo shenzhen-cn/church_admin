@@ -23,7 +23,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active">首页当日经文设置</li>
       </ol>
     </section>
@@ -39,7 +39,7 @@
             </div>
             <div class="box-body">
              <div class="col-md-12">
-               <form class="navbar-form navbar-left" role="search" action="<?php echo base_url('homeSetting/search_bibile'); ?>" method="get">
+               <form class="navbar-form navbar-left" role="search" action="<?php echo site_url('homesetting/search_bibile'); ?>" method="get">
                  <label  for="testament">新旧约：</label>                  
                  <div class="form-group">
                    <select class="form-control" name="testament" id="testament">
@@ -84,7 +84,7 @@
                   $section_id = $v->section;
                   $section_content = $v->section_content;
                   ?>                              
-                  <form action="<?php echo base_url('homeSetting/add_today_scriptures'); ?>" method="post" name="add_bibile_form<?php echo $k; ?>">
+                  <form action="<?php echo site_url('homesetting/add_today_scriptures'); ?>" method="post" name="add_bibile_form<?php echo $k; ?>">
                    <p><label>
                      <a href="javascript:document.add_bibile_form<?php echo $k; ?>.submit();"><i class="fa  fa-plus-square"></i></a>                   
                    </label>
@@ -127,7 +127,7 @@
         <?php } ?>   
         <?php if (!empty($book_list)) { ?>
                  
-        <form action="<?php echo base_url('homeSetting/setting_todayScriptures'); ?>" method="post">
+        <form action="<?php echo site_url('homesetting/setting_todayScriptures'); ?>" method="post">
          <div class="col-md-12">
 
             <div class="box box-primary">
@@ -147,7 +147,7 @@
                     ?>                    
                   <li>                    
                     <div class="tools">
-                      <a href="<?php echo base_url('homeSetting/del_choosed_bibile?key_id='.$key); ?>" onclick=" return drop_confirm()" ><i class="fa fa-trash-o"></i></a>
+                      <a href="<?php echo site_url('homesetting/del_choosed_bibile?key_id='.$key); ?>" onclick=" return drop_confirm()" ><i class="fa fa-trash-o"></i></a>
                     </div>
                     <span class="text">【<?php echo $chapter_id;?>:<?php echo $section_id; ?>】<?php echo $section_content; ?></span>
                     <input type="hidden" name="book_id[]" value="<?php echo $book_id; ?>">

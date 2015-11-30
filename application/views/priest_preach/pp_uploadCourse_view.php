@@ -16,7 +16,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li><a href="#">牧师讲道</a></li>
         <li class="active">上传课件</li>
       </ol>
@@ -32,7 +32,7 @@
               <h3 class="box-title">上传课件</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-              <form role="form"   action="<?php  echo base_url('priest_preach/getContent'); ?>"  method="post" enctype="multipart/form-data" onsubmit="return check_file();">
+              <form role="form"   action="<?php  echo site_url('priest_preach/getContent'); ?>"  method="post" enctype="multipart/form-data" onsubmit="return check_file();">
                 <div class="col-md-12">
                   <br>  
                   <div class="row">
@@ -110,8 +110,8 @@
       //检测文件大小和类型 
       function fileChange(target){ 
           //检测上传文件的类型 
-          if(!(/(?:doc|pdf|ppt)$/i.test(target.value))) { 
-            alert("只允许上传doc|pdf|ppt格式的文件！"); 
+          if(!(/(?:doc|pdf|ppt|docx)$/i.test(target.value))) {
+            alert("只允许上传doc|pdf|ppt|docx格式的文件！");
 
             if (window.ActiveXObject) {
                 target.select();//select the file ,and clear selection 

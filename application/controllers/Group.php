@@ -35,10 +35,12 @@ class Group extends MY_Controller {
             }
 
             //小组的成员信息
-            $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");    
+            $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");
+//            var_dump($user_results);exit;
             if ( $user_results && $user_results['http_status_code'] ==200 ) {
                 $content  =  json_decode($user_results['output']);
                 $status_code = $content->status_code;
+//                var_dump($content);exit;
 
                 if ($status_code == 200) {
                     $data['group_users'] = $content->results;
@@ -80,12 +82,11 @@ class Group extends MY_Controller {
             redirect('login','refresh');
 
         } else{
-            
             $data  = $this->tq_admin_header_info();
             $params['addGroupName']  = $this->input->post('addGroupName') ? $this->input->post('addGroupName') : "";
             $params['admin_id']      = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "";
 
-            if (!empty($params['addGroupName'])) {                
+            if (!empty($params['addGroupName'])) {
 
                 $url = API_BASE_LINK.'group/addGroup';
                 $result = doCurl($url, $params, 'POST');

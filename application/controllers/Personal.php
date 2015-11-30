@@ -5,16 +5,16 @@ class Personal extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->helpers('uploadFiles');
+		$this->load->helpers('uploadfiles');
 	 	$this->load->helper('pagination');
 		
 
 	}
 
-	public function index()
-	{
-		$this->load->view('personal/personal_view');
-	}
+//	public function index()
+//	{
+//		$this->load->view('personal/personal_view');
+//	}
 
 	public function setPersonalData()
 	{	
@@ -39,13 +39,19 @@ class Personal extends MY_Controller {
 
 			$data =  $this->tq_admin_header_info();
 			$adminHead_src = $data['admin_info']->adminHead_src;
-			$userHeadSrc = $this->input->post('userHeadSrc') ; 
+//			var_dump($adminHead_src);exit;
+			$userHeadSrc = $this->input->post('userHeadSrc') ;
+//			var_dump($userHeadSrc);exit;
+
+
 			if(!empty($userHeadSrc) && $userHeadSrc  == $adminHead_src){
 				$params['adminHeadSrc']	= $userHeadSrc;
 			}else{
 				$fileInfo = $_FILES['uploadphoto'];
 				$uploadPath = "public/uploads/userHeadsrc";
-				$msg_return = uploadFiles( $fileInfo,$uploadPath);
+				$msg_return = uploadFiles($fileInfo,$uploadPath);
+//				var_dump($msg_return);exit;
+
 
 				if (isset($msg_return['msg']) ) {
 					$this->session->set_flashdata('error', $msg_return['msg']);
@@ -61,13 +67,15 @@ class Personal extends MY_Controller {
 					}				 
 				}
 			}
-			
+
+
 			$params['admin_nick'] 	    = $this->input->post('admin_nick');
 			$params['gender'] 			= $this->input->post('gender');
 			$params['admin_id'] 		= $this->session->userdata('admin_id');
-
+//			var_dump($params);exit;
 			$url = API_BASE_LINK.'personal/upload_admin_photo';
 			$result = doCurl($url, $params, 'POST');
+//			var_dump($result);exit;
 
 			if ($result && $result['http_status_code'] == 200) {
 
@@ -91,28 +99,30 @@ class Personal extends MY_Controller {
 			} else {
 				show_404();exit;
 			}  
-			
+//			echo "sdfsdf";exit;
 			redirect('setPersonalData','refresh');
 		}
 		
 	}
 
-	public function addPersonal()
+	public function add_personal()
 	{
 		if (!$this->session->userdata('access_token')) {
 			
 			redirect('login','refresh');
 
 		}else {
-
+//			var_dump('ssdfsdf');exit;
 			$data =  $this->tq_admin_header_info();
-
-			$params['re_user_email'] = $this->input->post('re_user_email') ; 
-			$params['admin_id'] = $this->session->userdata('admin_id'); 
+			$params['re_user_email'] = $this->input->post('re_user_email') ;
+			$params['admin_id']      = $this->session->userdata('admin_id');
+//			var_dump($params);exit;
 			if ( ! empty($params['re_user_email'])) {
 				$url = API_BASE_LINK.'user/addPersonal';
 
+//				echo $url;exit;
 				$result = doCurl($url, $params, 'POST');
+//				var_dump($result);exit;
 				if ($result && $result['http_status_code'] == 200){
 
 					$result = json_decode($result['output']);
@@ -128,7 +138,7 @@ class Personal extends MY_Controller {
 						$message = $result->message;
 						$data['info'] = $message;
 					}
-
+//					var_dump($data);exit;
 					$this->load->view('personal/addpersonal_view' ,isset($data) ? $data : "" );	
 
 				}else{

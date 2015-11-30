@@ -315,7 +315,7 @@ class Priest_preach extends MY_Controller {
     public function do_upload()
     {
 
-        $config['upload_path']      = './uploads/files/course_ppt/';
+        $config['upload_path']      = './public/uploads/files/course_ppt/';
         $config['allowed_types']    = '*';
         $config['max_width']        = 3072;
         $config['overwrite']        = false;

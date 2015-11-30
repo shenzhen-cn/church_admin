@@ -15,7 +15,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">首页通知设置</li>
 			</ol>
 		</section>
@@ -30,7 +30,7 @@
 							<h3 class="box-title">添加通知</h3>
 						</div><!-- /.box-header -->
 						<!-- form start -->
-						<form action="<?php echo base_url('homeSetting'); ?>" method="post">
+						<form action="<?php echo site_url('homesetting'); ?>" method="post">
 							
 							<div class="box-body">
 								<div class="form-group">

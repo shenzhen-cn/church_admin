@@ -18,7 +18,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">在线圣经</li>
 			</ol>
 		</section>
@@ -41,7 +41,7 @@
 
 									if ($bibile_testament == 'old') { ?>
 										<div class="col-md-2 col-sm-3 col-xs-4">
-											<a href="<?php echo base_url('look_volume?book_id='."$book_id"); ?>">
+											<a href="<?php echo site_url('look_volume?book_id='."$book_id"); ?>">
 												<span class="info-box-icon bg-red"><?php echo $bibile_volumeName; ?></span>
 											</a>
 										</div><!-- /.col -->
@@ -66,7 +66,7 @@
 
 									if ($bibile_testament == 'new') { ?>
 										<div class="col-md-2 col-sm-3 col-xs-4">
-											<a href="<?php echo base_url('look_volume?book_id='."$book_id"); ?>">
+											<a href="<?php echo site_url('look_volume?book_id='."$book_id"); ?>">
 												<span class="info-box-icon bg-aqua"><?php echo $bibile_volumeName; ?></span>
 											</a>
 										</div><!-- /.col -->

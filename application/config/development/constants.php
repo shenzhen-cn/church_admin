@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+  exit('No direct script access allowed');
 /*
   |--------------------------------------------------------------------------
   | File and Directory Modes
@@ -45,22 +45,17 @@ define('DEFAULT_LIMIT', 10);
 
 
 /* define API BASE URL */
-// http://localhost/work02/mms_admin_web/public/index.php/admin
-// var_dump('http://localhost/work02/mms_admin_api/index.php/');exit();
-// http://localhost/work02/mms_admin_api/
-//http://localhost/works/mms_admin_api/
-// define('API_BASE_LINK', 'http://localhost/works/mms_admin_api/index.php/');
-//define('API_BASE_LINK', 'http://localhost/projects/mms_admin_api/index.php/');
-// define('API_BASE_LINK_REPORT', 'http://localhost/works/mms_admin_api/index.php/');
 
-// define('API_BASE_LINK', 'http://192.168.1.167/mms_public/mms_admin_api/index.php/');
-//define('API_BASE_LINK', 'http://192.168.1.167/projects/mms_admin_api/index.php/');
-// define('API_BASE_LINK_REPORT', 'http://192.168.1.167/mms_public/mms_admin_api/index.php/');
+define('API_BASE_LINK', 'http://localhost/church_api/index.php/');
 
-/*
-  The 'IS_AJAX' constant allows for a quick simple test as to whether the
-  current request was made with XHR.
- */
+define('ROLE_USER_PHOTOS_URL', 'http://localhost/church_user/');
+
+
+define('ROLE_FILE_PRIEST_PREACH_BASE_URL', 'http://localhost/church_admin/public/uploads/files/course_ppt/');
+
+define('ROLE_USER_HEAD_BASE_SRC', 'http://localhost/church_user/public/uploads/userHeadsrc/');
+
+
 define('YES_FLAG', 'Y');
 define('NO_FLAG', 'N');
 

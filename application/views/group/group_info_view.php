@@ -19,7 +19,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">小组设置</li>
 			</ol>
 		</section>
@@ -65,7 +65,7 @@
 										<td>无</td>
 									<?php 	} ?>
 									<td>
-										<a href='<?php 	echo base_url('group/groupEdit?group_id='."$group_id".'&group_leader_id='."$group_leader_id"); ?>' type="button" class="btn btn-success btn-xs">修改</a>
+										<a href='<?php 	echo site_url('group/groupEdit?group_id='."$group_id".'&group_leader_id='."$group_leader_id"); ?>' type="button" class="btn btn-success btn-xs">修改</a>
 									</td>
 									
 								</tr>

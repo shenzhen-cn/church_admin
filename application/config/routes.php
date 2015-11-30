@@ -71,13 +71,13 @@ $route['myEdit']   	           = 'priest_preach/myEdit';
 $route['read_myEdit']   	   = 'priest_preach/read_myEdit';
 
 
-$route['add_today_scriptures'] 	   = 'HomeSetting/add_today_scriptures';
-$route['urgentPrayer'] 		   = 'HomeSetting/urgentPrayer';
-$route['noticeGroup'] 		   = 'HomeSetting/noticeGroup';
+$route['add_today_scriptures'] 	   = 'Homesetting/add_today_scriptures';
+$route['urgentPrayer'] 		   = 'Homesetting/urgentPrayer';
+$route['noticeGroup'] 		   = 'Homesetting/noticeGroup';
 
-$route['setPersonalData']      = 'Personal/setPersonalData';
+$route['setPersonalData']      = 'personal/setPersonalData';
 
-$route['addPersonal']          = 'Personal/addPersonal';
+$route['add_personal']          = 'Personal/add_personal';
 $route['user_registered']      = 'Personal/user_registered';
 $route['forgetpassword']   	   = 'Resetpassword/forgetpassword';
 $route['resetPwd']             = 'login/reset_pwd_for_forget';

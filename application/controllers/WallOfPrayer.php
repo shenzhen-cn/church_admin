@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class WallOfPrayer extends MY_Controller {
+class Wallofprayer extends MY_Controller {
 
 	 /**
      * Constructor function
@@ -28,6 +28,7 @@ class WallOfPrayer extends MY_Controller {
 				'&page='.$data['page']
 				);
 
+//			var_dump($get_all_prayer);exit;
 			if ($get_all_prayer && $get_all_prayer['http_status_code'] ==200) {
 				$content = json_decode($get_all_prayer['output']);
 				$status_code	 = $content->status_code;

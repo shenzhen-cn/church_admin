@@ -2,7 +2,7 @@
 
 if ( ! function_exists('uploadFiles'))
 {
-	function uploadFiles($fileInfo,$uploadPath="../public/upload",$flag = true,$allowExt = array('jpeg','jpg','png','bmp'),$maxSize = 2097152)
+	function uploadfiles($fileInfo,$uploadPath="public/upload",$flag = true,$allowExt = array('jpeg','jpg','png','bmp'),$maxSize = 2097152)
 	{
 			//$_FILES 文件上传变量
 			// print_r($_FILES);
@@ -100,6 +100,8 @@ if ( ! function_exists('uploadFiles'))
 
 				// 如果目录不存在，自定义创建目录
 				//$uploadPath = "../public/upload/";
+//				echo $uploadPath;exit;
+//				var_dump(!file_exists($uploadPath));exit;
 				if (!file_exists($uploadPath)) {
 					mkdir($uploadPath,0777,true);
 					chmod($uploadPath,0777);

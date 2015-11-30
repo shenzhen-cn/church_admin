@@ -21,7 +21,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li >在线圣经</li>
 				<li class="active">查找经文</li>
 			</ol>
@@ -56,7 +56,7 @@
 								
 									<tr>
 										<td style="width: 100px;">
-											<font><b><a href="<?php echo base_url().'look_volume?book_id='.$book_id."&chapter_id=".$chapter_id."#".$bibile_section_id; ?>"><?php echo $directory;?><?php echo $chapter_id;?>	:<?php echo $section;?></a></b></font>
+											<font><b><a href="<?php echo site_url().'/look_volume?book_id='.$book_id."&chapter_id=".$chapter_id."#".$bibile_section_id; ?>"><?php echo $directory;?><?php echo $chapter_id;?>	:<?php echo $section;?></a></b></font>
 										</td>
 										<td>
 											<span><?php echo str_replace("$search_keyword","<strong class='label label-danger'>".$search_keyword."</strong>","$content"); ?></span>

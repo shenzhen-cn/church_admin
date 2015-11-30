@@ -20,7 +20,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">小组设置</li>
 			</ol>
 		</section>
@@ -34,7 +34,7 @@
 							<h3 class="box-title">编辑小组信息</h3>
 						</div><!-- /.box-header -->
 						<!-- form start -->
-						<form role="form" action="<?php echo base_url('group/groupEdit'); ?>" method='post' >
+						<form role="form" action="<?php echo site_url('group/groupEdit'); ?>" method='post' >
 							
 								<div class="box-body">
 									<div class="form-group">
@@ -80,7 +80,7 @@
 								</div><!-- /.box-body -->
 								
 							<div class="box-footer">
-								<a href="<?php echo base_url('group/del_group?group_id='."$group_id"); ?>" type="button" class="btn btn-danger pull-left" >删除
+								<a href="<?php echo site_url('group/del_group?group_id='."$group_id"); ?>" type="button" class="btn btn-danger pull-left" >删除
 								</a>		
 								<button type="submit" class="btn btn-primary pull-right" >提交
 								</button>

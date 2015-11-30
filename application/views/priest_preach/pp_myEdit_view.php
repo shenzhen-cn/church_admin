@@ -20,7 +20,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	
 	<section class="content">
-		<form  method="post" action="<?php 	echo base_url('priest_preach/getmyEditor'); ?>">
+		<form  method="post" action="<?php 	echo site_url('priest_preach/getmyEditor'); ?>">
 			<div class="col-md-12">
 				<div class="row">
 					<div class="form-group">
@@ -36,7 +36,7 @@
 				<div class="box-footer">
 					<div class="pull-right">
 						<?php if (!empty($document_id)): ?>
-							<a href="<?php echo base_url('priest_preach/del_document?document_id='."$document_id"); ?>" class="btn btn-danger" id="preview" onclick=" return drop_confirm()">删除</a>							
+							<a href="<?php echo site_url('priest_preach/del_document?document_id='."$document_id"); ?>" class="btn btn-danger" id="preview" onclick=" return drop_confirm()">删除</a>
 						<?php endif ?>
 						<button class="btn btn-primary" id="preview" onclick="if(!check_is_blank()){return false;}">提交上传</button>
 					</div>

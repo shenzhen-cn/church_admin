@@ -15,7 +15,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active">修改密码</li>
       </ol>
     </section>
@@ -30,7 +30,7 @@
           <div class="login-box-body">
           <?php $this->load->view('tq_alerts'); ?>
             <p class="login-box-msg">请注意密码修改后，将重新登录</p>
-            <form id="checkform" action="<?php echo base_url('resetpassword'); ?>" method="post">
+            <form id="checkform" action="<?php echo site_url('resetpassword'); ?>" method="post">
               <div class="form-group has-feedback">
                 <input type="password" class="form-control  " placeholder="当前密码"  id="currentPwd" name="currentPwd"  AUTOCOMPLETE="off">
               </div>

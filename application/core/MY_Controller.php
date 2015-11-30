@@ -23,22 +23,25 @@ class MY_Controller extends CI_Controller
 		}else {
 
 			$admin_id = $this->session->userdata('admin_id');
-			if ($admin_id) {
-				//临时图片存放地址	
-			    $data['role_path_albums']           = 'D:/workspace/church_dev/tq_user/';
 
+			if ($admin_id) {
+				//临时图片存放地址
+				$data['role_path_albums']           = 'D:/workspace/church_dev/tq_user/';
 				$result = doCurl(API_BASE_LINK.'tq_admin_header_info/find?admin_id='.$admin_id);
+//				var_dump($result);exit;
 				if (isset($result) && $result['http_status_code'] == 200)
 				{
-				    $contents = json_decode($result['output']);
-				    $content = $contents->results;
-				    // var_dump($content);exit;
+					$contents = json_decode($result['output']);
+					$content = $contents->results;
+					// var_dump($content);exit;
 
-				    $data['admin_info']      					= 	$content->admin_info;
-				    $data['group_info']     					= 	$content->group_info;
-				    $data['clas_p_p']     	    = 	$content->class_name_priest_preach;
+					$data['admin_info']      					= 	$content->admin_info;
+					$data['group_info']     					= 	$content->group_info;
+					$data['clas_p_p']     	    = 	$content->class_name_priest_preach;
 
-				    return $data;
+//			var_dump($data);exit;
+
+					return $data;
 
 				}    	
 				

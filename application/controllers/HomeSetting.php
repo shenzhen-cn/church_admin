@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class HomeSetting extends MY_Controller {
+class Homesetting extends MY_Controller {
 
 	 /**
      * Constructor function
@@ -12,7 +12,7 @@ class HomeSetting extends MY_Controller {
     }
 
 	public function index() {
-
+//			echo "sdfsdfsdf";exit;
 		if (!$this->session->userdata('access_token')) {
 					
 				redirect('login','refresh');
@@ -27,7 +27,7 @@ class HomeSetting extends MY_Controller {
 			if ( !empty($this->input->post())) {
 				
 				$url = API_BASE_LINK.'homeSetting/home_inform';
-				// echo $url;exit();
+//				 echo $url;exit();
 				$result = doCurl($url, $params, 'POST');
 				// var_dump($result);exit();
 
@@ -46,7 +46,7 @@ class HomeSetting extends MY_Controller {
 					show_404();exit();
 				}
 
-				redirect('HomeSetting','refresh');
+				redirect('Homesetting','refresh');
 			}
 			else{
 				$this->load->view('homeSetting/homeInform_view' ,isset($data) ? $data : "");
@@ -221,7 +221,7 @@ class HomeSetting extends MY_Controller {
 		   	$url_form_key =  urlencode($form_key);
 			$this->session->set_flashdata('info', '成功添加！');
 
-		   	redirect(base_url("homeSetting/search_bibile?testament=$testament&book_id=$book_id&chapter_id=$chapter_id&form_key=$url_form_key"), 'refresh');
+		   	redirect(site_url("homesetting/search_bibile?testament=$testament&book_id=$book_id&chapter_id=$chapter_id&form_key=$url_form_key"), 'refresh');
 		   	
 		   }else {
 	           $book_list = $this->session->userdata('book_list');

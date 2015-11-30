@@ -43,7 +43,7 @@ class Resetpassword extends MY_Controller {
 					}else{
 						
 				        $this->session->unset_userdata('access_token');
-						redirect('login','refresh');
+						redirect(site_url('login'),'refresh');
 					}
 				}else{
 					show_404();exit;

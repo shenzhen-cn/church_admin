@@ -33,7 +33,7 @@
 						<img src="<?php echo base_url(); ?>public/images/tq_logo.png" alt="User Image">
 					</div>
 					<!-- /.lockscreen-image -->
-					<form class="lockscreen-credentials" action="<?php echo base_url('addPersonal'); ?>" method="post">
+					<form class="lockscreen-credentials" action="<?php echo site_url('add_personal'); ?>" method="post">
 						<div class="input-group">
 							<input type="email" class="form-control" placeholder="申请注册邮箱"  id="re_user_email" name="re_user_email" required="required" AUTOCOMPLETE="off">
 							<div class="input-group-btn">
@@ -50,3 +50,4 @@
 
 </body>
 </html>
+

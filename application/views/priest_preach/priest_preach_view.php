@@ -24,7 +24,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active">牧师讲道</li>
       </ol>
     </section>
@@ -34,8 +34,8 @@
       <div class="row">
         <div class="col-md-3">
           <?php $this->load->view('tq_alerts'); ?>
-          <a href="<?php echo base_url('PP_add'); ?>" class="btn btn-primary btn-block margin-bottom">添加分类</a>
-          <a href="<?php echo base_url('uploadCourse'); ?>" class="btn btn-warning btn-block margin-bottom">上传课程</a>
+          <a href="<?php echo site_url('PP_add'); ?>" class="btn btn-primary btn-block margin-bottom">添加分类</a>
+          <a href="<?php echo site_url('uploadCourse'); ?>" class="btn btn-warning btn-block margin-bottom">上传课程</a>
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">分类</h3>
@@ -77,7 +77,7 @@
                     $active=null;
                   }
                   ?>
-                  <li class="<?php echo $active; ?>"><a href="<?php  echo base_url('priest_preach?id='."$p_p_c_n_id"); ?>"><i class="fa  <?php echo $fa_style; ?>"></i><?php echo $class_name; ?></a></li>
+                  <li class="<?php echo $active; ?>"><a href="<?php  echo site_url('priest_preach?id='."$p_p_c_n_id"); ?>"><i class="fa  <?php echo $fa_style; ?>"></i><?php echo $class_name; ?></a></li>
                 <?php }
                  } ?>
               </ul>
@@ -148,7 +148,7 @@
                       <td class="mailbox-subject"><b> - <?php echo $course_keys; ?> - </b></td>
                       <td class="mailbox-subject"><b> <?php echo $file_size; ?> M  <i class="fa fa-paperclip"></i> </b></td>
                       <td class="mailbox-date"><?php  echo date("Y/m/d",strtotime( $content_p_p_created_at));?></td>
-                      <td class="mailbox-subject"><a href="<?php echo base_url('priest_preach/del_course?id='."$content_p_p_id".'&class_priest_id='."$class_priest_id".'&file_name='."$file_name"); ?>" onclick=" return drop_confirm()"><strong class="label label-danger"><i class="fa fa-trash-o"></i> 删除</strong></a></td>
+                      <td class="mailbox-subject"><a href="<?php echo site_url('priest_preach/del_course?id='."$content_p_p_id".'&class_priest_id='."$class_priest_id".'&file_name='."$file_name"); ?>" onclick=" return drop_confirm()"><strong class="label label-danger"><i class="fa fa-trash-o"></i> 删除</strong></a></td>
                     </tr>
                     <?php } ?>                                        
                   </tbody>

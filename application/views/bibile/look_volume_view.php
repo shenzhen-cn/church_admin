@@ -30,8 +30,8 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="<?php echo base_url('bibile'); ?>">在线圣经</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('bibile'); ?>">在线圣经</a></li>
 				<li class="active">查看经文</li>
 			</ol>
 		</section>
@@ -50,7 +50,7 @@
 				<br>
 				<?php if (!empty($count_chapter)) { ?>
 					
-					<form action="<?php echo base_url('look_volume'); ?>" method='get'>	
+					<form action="<?php echo site_url('look_volume'); ?>" method='get'>
 				        <div class="col-md-2 pull-left input-group-sm" >
 					        <select class="form-control  " name="chapter_id">
 					        <?php for ($select_id = 1; $select_id <= $count_chapter ; $select_id++) { 
@@ -121,12 +121,12 @@
     	               <ul class="pagination pagination-sm no-margin pull-right">
     	               	<?php if (($temp = $id-2) >= 1 ) { ?>
                           <li>
-                              <a href="<?php echo base_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool"  title="上一章">上一章</a>
+                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool"  title="上一章">上一章</a>
                           </li>
     	               	<?php  } ?>
     	               	<?php if ($id <= $count_chapter) { ?>
                           <li>
-                              <a href="<?php echo base_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool"  title="下一章">下一章</a>
+                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool"  title="下一章">下一章</a>
                           </li>
     	               	<?php } ?>
                         </ul>

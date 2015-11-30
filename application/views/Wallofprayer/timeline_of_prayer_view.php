@@ -3,7 +3,8 @@
 	$page            = isset($page) ? $page : "";
 	$total           = isset($total) ? $total : "";
 	$user_Headsrc_base_url = ROLE_USER_HEAD_BASE_SRC;
-	
+//var_dump($user_Headsrc_base_url);exit;
+
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">祷告墙</li>
 			</ol>
 		</section>
@@ -55,7 +56,7 @@
 								</li>	
 								<li class="prayer_container_<?php echo $group_prayer_id;?>">									
 									<?php if (empty($userHeadSrc)) {?>
-									   <img src="<?php echo base_url(); ?>images/mrpho.jpg" class="fa direct-chat-img" alt="用户头像">
+									   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="fa direct-chat-img" alt="用户头像">
 									<?php } else { ?>
 									 <img src="<?php echo $user_Headsrc_base_url.$userHeadSrc; ?>" class="fa direct-chat-img" alt="用户头像">
 									 <?php   } ?>
@@ -85,7 +86,7 @@
 								</li>	
 								<li class="prayer_container_<?php  echo $urgent_id;?>">									
 								<?php if (empty($userHeadSrc)) {?>
-								   <img src="<?php echo base_url(); ?>images/mrpho.jpg" class="fa direct-chat-img" alt="用户头像">
+								   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="fa direct-chat-img" alt="用户头像">
 								<?php } else { ?>
 								 <img src="<?php echo $user_Headsrc_base_url.$userHeadSrc; ?>" class="fa direct-chat-img" alt="用户头像">
 								 <?php   } ?>
@@ -143,7 +144,7 @@
 			// console.log(currentPage);
 
 
-			var url  = "<?php echo base_url('WallOfPrayer/get_json_wallofprayer');?>";	
+			var url  = "<?php echo site_url('Wallofprayer/get_json_wallofprayer');?>";
 
 			 htmlobj=$.ajax({
 			 	url:url,

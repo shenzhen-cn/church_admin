@@ -31,7 +31,7 @@
 							<h3 class="box-title">添加小组</h3>
 						</div><!-- /.box-header -->
 						<!-- form start -->
-						<form role="form" action="<?php echo base_url('group/addGroup'); ?>" method='post'>
+						<form role="form" action="<?php echo site_url('group/addGroup'); ?>" method='post'>
 							
 							<div class="box-body">
 								<div class="form-group">
