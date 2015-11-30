@@ -24,7 +24,7 @@ class Login extends MY_Controller {
 			$params['admin_pwd'] = $this->input->post('admin_pwd');
 			$url = API_BASE_LINK.'adminLogin/checkLogin';
 			$result = doCurl($url, $params, 'POST');
-			var_dump($result);exit;
+			// var_dump($result);exit;
 			if (isset($result) && $result['http_status_code'] == 400 && !empty($params['admin_pwd']))
 			{
 			    $result = json_decode($result['output']);
@@ -110,7 +110,7 @@ class Login extends MY_Controller {
 			// var_dump($status_code);exit();
 
 			if ($status_code == 200) {
-				redirect(site_url('login'),'refresh');									
+				redirect(base_url('login'),'refresh');									
 			}else{
 	 			echo "密码重置失败！"; exit();									
 			}				
