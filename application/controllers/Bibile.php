@@ -80,9 +80,11 @@
 		else {
 
 			$data =  $this->tq_admin_header_info();
+			$results = $this->input->get('results');	
+			$page = $this->input->get('page');
+			$data['results'] =  $results ? $results : 10;
+			$data['page'] =  $page ? $page : 1;	
 			
-			$data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;	
 			$search_keyword = trim($this->input->get('search_keyword'));
 			// echo strlen($search_keyword);exit;
 

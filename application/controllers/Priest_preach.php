@@ -19,9 +19,12 @@ class Priest_preach extends MY_Controller {
 	 		redirect('login','refresh');
 	 	}else {
 	 		$data =  $this->tq_admin_header_info();	
-	 		$id  =  $this->input->get('id') ? $this->input->get('id') : "";
-	 		$data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-	 		$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;		
+	 		$id  =  $this->input->get('id');
+	 		$results = $this->input->get('results');	
+	 		$page = $this->input->get('page');
+	 		$data['results'] = $results ? $results : 10;
+	 		$data['page'] = $page ? $page : 1;		
+
 	 		if (!empty($id)) {
 
 		 		$results = doCurl(API_BASE_LINK.
@@ -61,7 +64,7 @@ class Priest_preach extends MY_Controller {
 	 	}else {
 	 		$data =  $this->tq_admin_header_info();
 
-	 		$id = $this->input->get('id') ? $this->input->get('id') : "";	
+	 		$id = $this->input->get('id');	
 	 		
 
 	 		if (!empty($id)) {
@@ -99,7 +102,7 @@ class Priest_preach extends MY_Controller {
 	 		$temp_post = $this->input->post();
 	 		if ($temp_post) {
 
-	 			$params['course_class'] = $this->input->post('course_class') ? $this->input->post('course_class') : "" ;
+	 			$params['course_class'] = $this->input->post('course_class');
 	 			$params['admin_id'] = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
 
 	 			$url = API_BASE_LINK.'priest_preach/add_course_class';
@@ -168,11 +171,11 @@ class Priest_preach extends MY_Controller {
 
 	 		}else  if (!empty($params)) {
 
-	 			$params['p_p_c_n_id']     = $this->input->post('p_p_c_n_id') ? $this->input->post('p_p_c_n_id') : "" ;
-	 			$params['course_title']   = $this->input->post('course_title') ? $this->input->post('course_title') : "" ;
-	 			$params['share_from']     = $this->input->post('share_from') ? $this->input->post('share_from') : "" ;
-	 			$params['course_keys']    = $this->input->post('course_keys') ? $this->input->post('course_keys') : "" ;
-	 			$params['admin_id']       = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "";
+	 			$params['p_p_c_n_id']     = $this->input->post('p_p_c_n_id');
+	 			$params['course_title']   = $this->input->post('course_title');
+	 			$params['share_from']     = $this->input->post('share_from');
+	 			$params['course_keys']    = $this->input->post('course_keys');
+	 			$params['admin_id']       = $this->session->userdata('admin_id');
 	 			$params['file_name']      = isset($upload_data['file_name']) ? $upload_data['file_name'] : "";
 	 			$params['full_path']      = isset($upload_data['full_path']) ? $upload_data['full_path'] : "";
 	 			$params['orig_name']      = isset($upload_data['orig_name']) ? $upload_data['orig_name'] : "";
@@ -251,7 +254,7 @@ class Priest_preach extends MY_Controller {
     	}else {
 
 	 		$data =  $this->tq_admin_header_info();	
-    		$document_id = $this->input->get('document_id') ? $this->input->get('document_id') : '' ;
+    		$document_id = $this->input->get('document_id');
     		$results = doCurl(API_BASE_LINK.'priest_preach/read_myEdit_by_id?document_id='.$document_id);
 			if ($results && $results['http_status_code'] == 200 ) {
 				$content = json_decode($results['output']);
@@ -282,9 +285,9 @@ class Priest_preach extends MY_Controller {
     		$data =  $this->tq_admin_header_info();
     		$temp_post = $this->input->post();
     		if (!empty($temp_post)) {
-		 		$params['myEditor']       = $this->input->post('myEditor') ? $this->input->post('myEditor') : "" ;
-		 		$params['admin_id']       = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "";
-		 		$params['document_id']    = $this->input->post('document_id') ? $this->input->post('document_id') : "";
+		 		$params['myEditor']       = $this->input->post('myEditor');
+		 		$params['admin_id']       = $this->session->userdata('admin_id');
+		 		$params['document_id']    = $this->input->post('document_id');
     			
 		 		$url = API_BASE_LINK.'priest_preach/getmyEditor';
 		 		$result = doCurl($url, $params, 'POST');	
@@ -403,9 +406,9 @@ class Priest_preach extends MY_Controller {
 
     		redirect('login','refresh');
     	}else {
-    		$id = $this->input->get('id') ? $this->input->get('id') : "" ;
-    		$class_priest_id = $this->input->get('class_priest_id') ? $this->input->get('class_priest_id') : "" ;
-    		$admin_id = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
+    		$id = $this->input->get('id');
+    		$class_priest_id = $this->input->get('class_priest_id');
+    		$admin_id = $this->session->userdata('admin_id');
     		$file_name = $this->input->get('file_name');
 
     		if (!empty($id) && !empty($admin_id) ) {    			
@@ -440,8 +443,8 @@ class Priest_preach extends MY_Controller {
 
     		redirect('login','refresh');
     	}else {
-    		$document_id = $this->input->get('document_id') ? $this->input->get('document_id') : "" ;
-    		$admin_id = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
+    		$document_id = $this->input->get('document_id');
+    		$admin_id = $this->session->userdata('admin_id') ;
 			if (!empty($document_id) && !empty($admin_id) ) {
     			
 				$result = doCurl(API_BASE_LINK.'priest_preach/del_document?id='.$document_id.'&admin_id='.$admin_id);

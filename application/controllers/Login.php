@@ -66,9 +66,9 @@ class Login extends MY_Controller {
 
 	public  function reset_pwd_for_forget()
 	{
-		$op = $this->input->get('op') ? $this->input->get('op') : "" ;
-		$id = $this->input->get('id') ? $this->input->get('id') : "" ;
-		$token = $this->input->get('token') ? $this->input->get('token') : "";
+		$op = $this->input->get('op');
+		$id = $this->input->get('id');
+		$token = $this->input->get('token');
 		// var_dump($op);var_dump($id);var_dump($token);exit;
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
 

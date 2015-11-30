@@ -287,7 +287,8 @@ class Homesetting extends MY_Controller {
 	       
 		   $data =  $this->tq_admin_header_info();
            $temp_book_list = $this->session->userdata('book_list');
-           $key_id = $this->input->get('key_id') ? $this->input->get('key_id') : '0';
+           $key_id = $this->input->get('key_id');
+           $key_id =   $key_id ? $key_id : '0';
            unset($temp_book_list[$key_id]); 
            $this->session->unset_userdata('book_list');
            $this->session->set_userdata('book_list' , $temp_book_list);

@@ -163,8 +163,11 @@ class Personal extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_admin_header_info();
-			$data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;	
+			$results = $this->input->get('results');	
+			$page  = $this->input->get('page');
+
+			$data['results'] =  $results ? $results : 10;
+			$data['page'] = $page  ? $page : 1;	
 
 			$result = doCurl(API_BASE_LINK.'personal/user_registered?limit='.$data['results'].
 		 			'&page='.$data['page']);	

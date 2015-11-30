@@ -17,9 +17,10 @@ class Fellowship_life extends MY_Controller {
 		}else { 
 
 		    $data =  $this->tq_admin_header_info();
+		    $page = $this->input->get('page');
 
 		    $data['results'] = 20;
-		    $data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;		  
+		    $data['page'] =  $page ? $page : 1;		  
 
 		    $result = doCurl(
 				    		API_BASE_LINK.
@@ -51,8 +52,9 @@ class Fellowship_life extends MY_Controller {
 	
 	public function load_images()
 	{
+		$page = $this->input->post('page');
 		$data['results'] = 10;
-	    $data['page'] = $this->input->post('page') ? $this->input->post('page') : 1;
+	    $data['page'] =  $page ? $page : 1;
 
 	    if(!empty($data['page'])){	    
 
@@ -88,9 +90,9 @@ class Fellowship_life extends MY_Controller {
 			    redirect('login','refresh');		    
 		}else { 
 		    $data =  $this->tq_admin_header_info();
-		    $src_id  = $this->input->post('src_id') ? $this->input->post('src_id') : "" ;		    
+		    $src_id  = $this->input->post('src_id');		    
 		    $admin_id = $this->session->userdata('admin_id');
-		    $paths_src  = $this->input->post('paths_src') ? $this->input->post('paths_src') : "" ;		    
+		    $paths_src  = $this->input->post('paths_src');		    
 			$result = doCurl(API_BASE_LINK.'fellowship_life/del_photos?src_id='.$src_id.'&admin_id='.$admin_id);
 			$obj = array();
 

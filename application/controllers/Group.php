@@ -20,7 +20,7 @@ class Group extends MY_Controller {
         }else {
             $data  = $this->tq_admin_header_info();
 
-            $group_id =  $this->input->get('group_id') ? $this->input->get('group_id') : "";
+            $group_id =  $this->input->get('group_id');
 
             //得到小组的group_id,group_name,group_leader_id
             $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");           
@@ -83,8 +83,8 @@ class Group extends MY_Controller {
 
         } else{
             $data  = $this->tq_admin_header_info();
-            $params['addGroupName']  = $this->input->post('addGroupName') ? $this->input->post('addGroupName') : "";
-            $params['admin_id']      = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "";
+            $params['addGroupName']  = $this->input->post('addGroupName')
+            $params['admin_id']      = $this->session->userdata('admin_id');
 
             if (!empty($params['addGroupName'])) {
 
@@ -157,12 +157,12 @@ class Group extends MY_Controller {
 
             $data   = $this->tq_admin_header_info();
             
-            $group_id = $this->input->get('group_id') ? $this->input->get('group_id') : "" ;
-            $group_leader_id = $this->input->get('group_leader_id') ? $this->input->get('group_leader_id') : "" ;
+            $group_id = $this->input->get('group_id');
+            $group_leader_id = $this->input->get('group_leader_id');
 
-            $params['group_id']         = $this->input->post('group_id') ? $this->input->post('group_id') : "";
-            $params['group_name']       = $this->input->post('group_name') ? $this->input->post('group_name') : "";
-            $params['group_leader_id']  = $this->input->post('group_leader_id') ? $this->input->post('group_leader_id') : "";
+            $params['group_id']         = $this->input->post('group_id');
+            $params['group_name']       = $this->input->post('group_name');
+            $params['group_leader_id']  = $this->input->post('group_leader_id');
             $temp_post = $this->input->post();
             if (! empty($group_id)) {
                 $result = doCurl(API_BASE_LINK.'group/find_user_by_group_id?group_id='."$group_id");

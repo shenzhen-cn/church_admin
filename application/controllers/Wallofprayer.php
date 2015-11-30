@@ -20,7 +20,9 @@ class Wallofprayer extends MY_Controller {
 		}else {
 		    $data  = $this->tq_admin_header_info();
 			$data['results'] = 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;
+            $page = $this->input->get('page'); 
+
+			$data['page'] =  $page ? $page : 1;
 
 			$get_all_prayer = doCurl(API_BASE_LINK.
 				'wallOfPrayer/get_all_prayer'.
@@ -46,7 +48,8 @@ class Wallofprayer extends MY_Controller {
     public function get_json_wallofprayer()
     {
     	$data['results'] = 10;
-    	$data['page'] = $this->input->post('page') ? $this->input->post('page') : 1;
+        $page = $this->input->post('page'); 
+    	$data['page'] =  $page ? $page : 1;
     	
     	$get_all_prayer = doCurl(API_BASE_LINK.
     		'wallOfPrayer/get_all_prayer'.

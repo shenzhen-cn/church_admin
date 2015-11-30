@@ -113,8 +113,8 @@ class Resetpassword extends MY_Controller {
 			redirect('login','refresh');
 		}else {
 
-			$params['currentPwd']  = $this->input->post('currentPwd') ? $this->input->post('currentPwd') : "";
-			$params['admin_id'] = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
+			$params['currentPwd']  = $this->input->post('currentPwd');
+			$params['admin_id'] = $this->session->userdata('admin_id');
 			// var_dump($params);exit;
 			$url = API_BASE_LINK.'resetpassword/checkCurrentadminPwd';
 			// echo $url;exit;
