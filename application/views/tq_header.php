@@ -97,6 +97,15 @@
               </p>
             </div>
           </div>
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <form action="<?php echo site_url('onlineBibile'); ?>" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="search_keyword" class="search_keyword form-control" placeholder="在线圣经查找"/>
+              <span class="input-group-btn">
+                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
           <!-- search form -->
           <ul class="sidebar-menu">
             <li>
@@ -206,15 +215,7 @@
             </li>
           </ul>
           <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <form action="<?php echo site_url('onlineBibile'); ?>" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="search_keyword" class="search_keyword form-control" placeholder="在线圣经查找"/>
-              <span class="input-group-btn">
-                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
+
         </section>
         <!-- /.sidebar -->
       </aside>
