@@ -45,42 +45,45 @@
 								</div><!-- /.box-tools -->
 							</div><!-- /.box-header -->
 							<div class="box-body">
-							<?php 	if (!empty($results)) { ?>
-								<table class="table table-bordered">
-									<tr>
-										<th>编号</th>
-										<th>注册邮箱</th>
-										<th>申请注册时间</th>
-										<th>注册链接过期时间</th>
-										<th>是否已经注册</th>
-									</tr>
-									<?php  foreach ($results as $k => $v) {
 
-									 	$id 		    = $v->id;
-									 	$user_name      = $v->user_name;
-									 	$status         = $v->status;
-									 	$created_url_at = $v->created_url_at;
-									 	$token_exptime  = $v->token_exptime; 
-									 	?>
-
+							<div class="table-responsive mailbox-messages">
+								<?php 	if (!empty($results)) { ?>
+									<table class="table table-bordered">
 										<tr>
-											<td><?php 	echo $k+1; ?></td>
-											<td><?php 	echo $user_name; ?></td>
-											<td><?php 	echo $created_url_at; ?></td>
-											<td><?php 	echo $token_exptime; ?></td>
-											<?php 	if ($status == 1) { ?>
-												<td><strong class="label label-info">已注册</strong></td>
-												
-											<?php  } else { ?> 
-
-												<td><strong class="label label-danger">未注册</strong></td>
-											<?php	} ?>
+											<th>编号</th>
+											<th>注册邮箱</th>
+											<th>申请注册时间</th>
+											<th>注册链接过期时间</th>
+											<th>是否已经注册</th>
 										</tr>
+										<?php  foreach ($results as $k => $v) {
 
-								<?php	 }?>
-								
-								</table>
-							<?php } ?>									
+										 	$id 		    = $v->id;
+										 	$user_name      = $v->user_name;
+										 	$status         = $v->status;
+										 	$created_url_at = $v->created_url_at;
+										 	$token_exptime  = $v->token_exptime; 
+										 	?>
+
+											<tr>
+												<td><?php 	echo $k+1; ?></td>
+												<td><?php 	echo $user_name; ?></td>
+												<td><?php 	echo $created_url_at; ?></td>
+												<td><?php 	echo $token_exptime; ?></td>
+												<?php 	if ($status == 1) { ?>
+													<td><strong class="label label-info">已注册</strong></td>
+													
+												<?php  } else { ?> 
+
+													<td><strong class="label label-danger">未注册</strong></td>
+												<?php	} ?>
+											</tr>
+
+									<?php	 }?>
+									
+									</table>
+								<?php } ?>										
+							</div>									
 							</div><!-- /.box-body -->
 							<div class="box-footer clearfix">
 								<div class="pull-right">
