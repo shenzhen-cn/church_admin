@@ -1,5 +1,0 @@
-application/logs/*
-application/config/development/*
-application/config/production/*
-application/config/testing/*
-public/uploads/*
