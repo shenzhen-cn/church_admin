@@ -14,9 +14,8 @@ class Login extends MY_Controller {
 	public function index() {
 		$access_token = $this->session->userdata('access_token');
 		if ($access_token) {
-				// sdfsdfj
 			$this->session->unset_userdata('access_token');
-			redirect(base_url('login'),'refresh');
+			redirect(site_url('login'),'refresh');
 
 		}else {
 
@@ -110,7 +109,7 @@ class Login extends MY_Controller {
 			// var_dump($status_code);exit();
 
 			if ($status_code == 200) {
-				redirect(base_url('login'),'refresh');									
+				redirect(site_url('login'),'refresh');									
 			}else{
 	 			echo "密码重置失败！"; exit();									
 			}				
