@@ -64,7 +64,7 @@ class Homesetting extends MY_Controller {
 
 			$data =  $this->tq_admin_header_info();
 			$temp_post = $this->input->post();
-			if (!empty($temp_post) {
+			if (!empty($temp_post)) {
 
 				$group_ids = $this->input->post('group_id');
 				$params['notice_contents'] = $this->input->post('notice_contents');
