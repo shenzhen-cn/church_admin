@@ -219,8 +219,11 @@ class Priest_preach extends MY_Controller {
     		}	
     		
 	 		$data =  $this->tq_admin_header_info();	
-    		$id = $this->input->get('id') ? $this->input->get('id') : "" ;
-    		if (!empty($this->input->get())) {
+	 		$id =  $this->input->get('id');
+
+    		$id = !empty($id) ? $id : "" ;
+    		$temp_get = $this->input->get();
+    		if (!empty($temp_get)) {
     			$results = doCurl(API_BASE_LINK.'priest_preach/read_myEdit_by_id?document_id='.$id);
     			if ($results && $results['http_status_code'] == 200 ) {
     				$content = json_decode($results['output']);
