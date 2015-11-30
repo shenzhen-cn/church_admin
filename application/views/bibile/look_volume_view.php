@@ -121,12 +121,12 @@
     	               <ul class="pagination pagination-sm no-margin pull-right">
     	               	<?php if (($temp = $id-2) >= 1 ) { ?>
                           <li>
-                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool"  title="上一章">上一章</a>
+                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool" >上一章</a>
                           </li>
     	               	<?php  } ?>
     	               	<?php if ($id <= $count_chapter) { ?>
                           <li>
-                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool"  title="下一章">下一章</a>
+                              <a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool" >下一章</a>
                           </li>
     	               	<?php } ?>
                         </ul>
