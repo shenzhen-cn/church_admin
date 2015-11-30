@@ -100,8 +100,8 @@ class Priest_preach extends MY_Controller {
 
 	 		$data =  $this->tq_admin_header_info();
 	 		$temp_post = $this->input->post();
-	 		if ($temp_post) {
 
+	 		if ($temp_post) {
 	 			$params['course_class'] = $this->input->post('course_class');
 	 			$params['admin_id'] = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
 
@@ -185,10 +185,10 @@ class Priest_preach extends MY_Controller {
 	 			$url = API_BASE_LINK.'priest_preach/getContent';
 
 	 			$result = doCurl($url, $params, 'POST');	 			
-	 			var_dump($result);exit;
+	 			// var_dump($result);exit;
 	 			if ($result && $result['http_status_code'] == 200 ) {
 		 			$content = json_decode($result['output']);
-
+		 			var_dump($content);exit;
 		 			$status_code = $content->status_code;
 		 			$results = isset($content->results) ? $content->results : "";		
 		 			if ($status_code == 200 && $results >= 1) {
