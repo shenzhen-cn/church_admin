@@ -62,7 +62,7 @@ class Personal extends MY_Controller {
 
 				if(!empty($adminHead_src)){
 					$file = '/var/www/html/church/church_admin/public/uploads/userHeadsrc/'.$adminHead_src;
-					var_dump(file_exists($file));exit;
+					// var_dump(file_exists($file));exit;
 					if(file_exists($file)){					
 						!unlink($file);
 					}				 
