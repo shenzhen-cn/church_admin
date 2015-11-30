@@ -38,7 +38,7 @@
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       function  changing() {
-        document.getElementById('checkpic1').src="public/images/Checkcode.php?"+Math.random();
+        document.getElementById('checkpic1').src="../public/images/Checkcode.php?"+Math.random();
       }
 
     </script>
