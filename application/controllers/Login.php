@@ -110,7 +110,7 @@ class Login extends MY_Controller {
 			$status_code    = $content->status_code;
 
 			if ($status_code == 200) {
-				redirect('login','refresh');									
+				redirect(site_url('login'),'refresh');									
 			}else{
 	 			echo "密码重置失败！"; exit();									
 			}				
