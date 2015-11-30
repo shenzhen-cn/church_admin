@@ -23,8 +23,8 @@ class Login extends MY_Controller {
 			$params['admin_name'] = $this->input->post('admin_name');
 			$params['admin_pwd'] = $this->input->post('admin_pwd');
 			$url = API_BASE_LINK.'adminLogin/checkLogin';
-			// var_dump($params);exit;
 			$result = doCurl($url, $params, 'POST');
+			var_dump($result);exit;
 			if (isset($result) && $result['http_status_code'] == 400 && !empty($params['admin_pwd']))
 			{
 			    $result = json_decode($result['output']);
@@ -107,7 +107,7 @@ class Login extends MY_Controller {
 		if ($result && $result['http_status_code'] == 200) {
 			$content   = json_decode($result['output']);
 			$status_code    = $content->status_code;
-			var_dump($status_code);exit();
+			// var_dump($status_code);exit();
 
 			if ($status_code == 200) {
 				redirect(site_url('login'),'refresh');									
