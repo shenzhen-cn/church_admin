@@ -96,8 +96,8 @@ class Priest_preach extends MY_Controller {
 	 	}else {
 
 	 		$data =  $this->tq_admin_header_info();
-
-	 		if ($this->input->post()) {
+	 		$temp_post = $this->input->post();
+	 		if ($temp_post) {
 
 	 			$params['course_class'] = $this->input->post('course_class') ? $this->input->post('course_class') : "" ;
 	 			$params['admin_id'] = $this->session->userdata('admin_id') ? $this->session->userdata('admin_id') : "" ;
@@ -376,7 +376,8 @@ class Priest_preach extends MY_Controller {
     		redirect('login','refresh');
     	}else {
     		// var_dump($this->input->post());exit;
-    		if (! empty($this->input->post())) {
+    		$temp_post = $this->input->post();
+    		if (! empty($temp_post)) {
 	    		$file_name = $this->input->post('file_name');
 	    		$full_path = $this->input->post('full_path');
 	    		$orig_name = $this->input->post('orig_name');

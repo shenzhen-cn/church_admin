@@ -23,8 +23,8 @@ class Homesetting extends MY_Controller {
 			$params['home_inform'] = $this->input->post('home_inform');
 			$params['home_inform_days'] = $this->input->post('home_inform_days');
 			$params['admin_id'] = $this->session->userdata('admin_id');
-
-			if ( !empty($this->input->post())) {
+			$temp_post = $this->input->post();
+			if ( !empty($temp_post)) {
 				
 				$url = API_BASE_LINK.'homeSetting/home_inform';
 //				 echo $url;exit();
@@ -63,7 +63,8 @@ class Homesetting extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_admin_header_info();
-			if (!empty($this->input->post())) {
+			$temp_post = $this->input->post();
+			if (!empty($temp_post) {
 
 				$group_ids = $this->input->post('group_id');
 				$params['notice_contents'] = $this->input->post('notice_contents');
@@ -108,7 +109,8 @@ class Homesetting extends MY_Controller {
 			$params['urgent_prayer_content'] = $this->input->post('urgent_prayer_content');
 			$params['admin_id'] = $this->session->userdata('admin_id');
 			// var_dump($params);exit();
-			if (!empty($this->input->post())) {
+			$temp_post = $this->input->post();
+			if (!empty($temp_post)) {
 
 				$url = API_BASE_LINK.'homeSetting/urgentPrayer';
 				$result = doCurl($url, $params, 'POST');
@@ -196,8 +198,9 @@ class Homesetting extends MY_Controller {
 	   
 	    }else {
 	       
-		   $data =  $this->tq_admin_header_info();	 
-		   if (!empty($this->input->post())) {
+		   $data =  $this->tq_admin_header_info();
+		   $temp_post = $this->input->post();	 
+		   if (!empty($temp_post)) {
 		   	$testament    = $this->input->post('testament');
 		   	$book_id      = $this->input->post('book_id');
 		   	$chapter_id   = $this->input->post('chapter_id');
