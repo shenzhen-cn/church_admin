@@ -103,6 +103,7 @@ class Fellowship_life extends MY_Controller {
 					if(!empty($paths_src)){
 						$paths_src = str_replace('\\','/',$paths_src);
 						$paths_src = $data['role_path_albums'].$paths_src;
+						echo json_encode($paths_src);
 						echo json_encode(file_exists($paths_src));exit;
 
 						if(file_exists($paths_src)){					
