@@ -26,7 +26,7 @@ class MY_Controller extends CI_Controller
 
 			if ($admin_id) {
 				//临时图片存放地址
-				$data['role_path_albums']           = 'D:/workspace/church_dev/tq_user/';
+				$data['role_path_albums']           = '/var/www/html/church/church_user/';
 				$result = doCurl(API_BASE_LINK.'tq_admin_header_info/find?admin_id='.$admin_id);
 //				var_dump($result);exit;
 				if (isset($result) && $result['http_status_code'] == 200)
