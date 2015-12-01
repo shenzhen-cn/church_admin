@@ -142,7 +142,7 @@
 				totalPage = parseInt(totalPage);
 				currentPage = parseInt(currentPage) + 1;
 
-				var url = "<?php echo base_url('fellowship_life/load_images'); ?>";
+				var url = "<?php echo site_url('fellowship_life/load_images'); ?>";
 
 				var boxes = new Array; 		
 				$.ajax({ 
