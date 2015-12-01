@@ -147,20 +147,23 @@
                     $group_id   = $v->id;
                     $group_name = $v->group_name; ?>
                     <li><a href="<?php echo site_url("group?group_id=".$group_id); ?>"><i class="fa fa-circle-o"></i><?php echo $group_name; ?></a></li>
-
                   <?php }?>
-                <?php } ?>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> 小组设置 <i class="fa fa-angle-left pull-right"></i></a>
-                  <ul class="treeview-menu">
-                    <li><a href="<?php  echo site_url('group/group_info'); ?>"><i class="fa fa-circle-o"></i> 小组修改</a></li>
-                    <li><a href="<?php  echo site_url('group/addGroup'); ?>"><i class="fa fa-circle-o"></i> 添加小组</a></li>
-
-                  </ul>
-                </li>
-
+                <?php } ?>               
               </ul>
             </li>
+
+            <li>
+              <a href="javascript:;">
+                <i class="fa fa-male"></i> <span> 小组设置</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo site_url('group/group_info'); ?>"><i class="fa fa-circle-o"></i> 小组修改 </a></li>
+                <li><a href="<?php echo site_url('group/addGroup'); ?>"><i class="fa fa-circle-o"></i> 添加小组 </a></li>
+              </ul>
+            </li>
+
+
             <li class="treeview">
               <a href="<?php  echo site_url('wall_for_photos'); ?>">
                 <i class="fa fa-users"></i>
@@ -182,7 +185,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo site_url('add_personal'); ?>"><i class="fa fa-circle-o"></i> 提交用户 </a></li>
+                <li><a href="<?php echo site_url('add_personal'); ?>"><i class="fa fa-circle-o"></i> 提交邮箱账号 </a></li>
                 <li><a href="<?php echo site_url('user_registered'); ?>"><i class="fa fa-circle-o"></i> 注册状态 </a></li>
               </ul>
             </li>
