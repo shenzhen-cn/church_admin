@@ -154,7 +154,7 @@
 
             <li>
               <a href="javascript:;">
-                <i class="fa fa-male"></i> <span> 小组设置</span>
+                <i class="fa  fa-gear"></i> <span> 小组设置</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
