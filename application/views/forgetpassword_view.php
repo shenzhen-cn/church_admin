@@ -42,7 +42,7 @@
       function  changing() {
         document.getElementById('checkpic1').src="../public/images/checkcode.php?"+Math.random();
       }
-    </script>>
+    </script>
     <style type="text/css" >  
 
       input.error { border: 1px solid red; }
