@@ -38,7 +38,11 @@
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>public/plugins/js/jquery.validate.js"></script>
     <script src="<?php echo base_url(); ?>public/js/f_p_chekc_admin.js"></script>
-
+    <script>
+      function  changing() {
+        document.getElementById('checkpic1').src="../public/images/checkcode.php?"+Math.random();
+      }
+    </script>>
     <style type="text/css" >  
 
       input.error { border: 1px solid red; }
