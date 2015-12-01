@@ -421,7 +421,8 @@ class Priest_preach extends MY_Controller {
 					$status_code = $content->status_code;
 					if ($status_code == 200) {
 						 if(!empty($file_name)){			
-							$file = 'uploads/files/course_ppt/'.$file_name;
+							$file = '/var/www/html/church/church_admin/uploads/files/course_ppt/'.$file_name;
+							var_dump(file_exists($file));exit;
 						 	if(file_exists($file)){					
 						 		!unlink($file);
 						 	}				 
