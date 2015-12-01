@@ -14,8 +14,8 @@
         <div class="login-box-body">
           <p class="login-box-msg">找回密码</p>
             <div class="form-group has-feedback">
-              <input type="email" class="form-control" name="f_user_email" id="f_user_email" placeholder="注册邮箱"  AUTOCOMPLETE="off" >
               <span class="fa fa-envelope-o  form-control-feedback"></span>
+              <input type="email" class="form-control" name="f_user_email" id="f_user_email" placeholder="注册邮箱"  AUTOCOMPLETE="off" >
             </div>
             <div class="row">
               <div class="form-group col-xs-6">
