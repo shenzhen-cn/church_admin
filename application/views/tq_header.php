@@ -162,18 +162,13 @@
               </ul>
             </li>
             <li class="treeview">
-              <a href="#">
+              <a href="<?php  echo site_url('wall_for_photos'); ?>">
                 <i class="fa fa-users"></i>
-                <span>团契生活</span>
-                <i class="fa fa-angle-left pull-right"></i>
+                <span>照片墙</span>
+                <small class="label pull-right bg-red"></small>                
               </a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="<?php  echo site_url('wall_for_photos'); ?>"><i class="fa fa-circle-o"></i> 照片墙</a>
-                </li>
-              </ul>
             </li>
-
+ 
             <li>
               <a href="<?php echo site_url('Wallofprayer'); ?>">
                 <i class="fa fa-fire"></i> <span>祷告墙</span>
