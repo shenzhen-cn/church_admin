@@ -1,6 +1,6 @@
 
 function  changing() {
-	document.getElementById('checkcode').src="../public/images/checkcode.php?"+Math.random();
+	document.getElementById('checkpic1').src="../public/images/checkcode.php?"+Math.random();
 }
 
 //登录表单验证
