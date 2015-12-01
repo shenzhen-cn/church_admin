@@ -10,16 +10,16 @@
         <b>使命</b>青年团契
       </div><!-- /.login-logo -->
       <?php $this->load->view('tq_alerts'); ?>
-      <form action="<?php   echo site_url('forgetpassword'); ?>" method='post'>
+      <form id="f_p_chekc_admin" action="<?php echo site_url('forgetpassword'); ?>" method='post'>
         <div class="login-box-body">
           <p class="login-box-msg">找回密码</p>
             <div class="form-group has-feedback">
-              <input type="email" class="form-control" name="user_email" placeholder="注册邮箱" required="required" AUTOCOMPLETE="off" >
+              <input type="email" class="form-control" name="f_user_email" id="f_user_email" placeholder="注册邮箱"  AUTOCOMPLETE="off" >
               <span class="fa fa-envelope-o  form-control-feedback"></span>
             </div>
             <div class="row">
               <div class="form-group col-xs-6">
-                 <input type="text" class="form-control"  name="checkcode" placeholder="验证码:" required="required" AUTOCOMPLETE="off"/>
+                 <input type="text" class="form-control"  name="checkcode" id="checkcode" placeholder="验证码:"  AUTOCOMPLETE="off"/>
               </div><!-- /.col -->
               <div class="form-group col-xs-4 col-xs-offset-1">
                  <img id="checkpic1" onclick="changing()" src="<?php echo base_url(); ?>public/images/Checkcode.php">
@@ -36,11 +36,23 @@
     <script src="<?php echo base_url('public/plugins/js/jquery-2.1.4.min.js'); ?>"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-      function  changing() {
-        document.getElementById('checkpic1').src="../public/images/Checkcode.php?"+Math.random();
+    <script src="<?php echo base_url(); ?>public/plugins/js/jquery.validate.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/f_p_chekc_admin.js"></script>
+
+    <style type="text/css" >  
+
+      input.error { border: 1px solid red; }
+      label.error {
+
+        padding-left: 16px;
+
+        padding-bottom: 2px;
+
+        font-weight: bold;
+
+        color: #EA5200;
       }
 
-    </script>
+    </style>
   </body>
 </html>

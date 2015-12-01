@@ -58,7 +58,7 @@ class Resetpassword extends MY_Controller {
 
 	public function forgetpassword() {
 
-		$params['user_email']  = $this->input->post('user_email');
+		$params['user_email']  = $this->input->post('f_user_email');
 		$checkcode1		  =  strtolower(trim($this->input->post('checkcode')));
 		$checkcode        = md5($checkcode1);
 		$cookie_checkcode = $this->input->cookie("checkpic");
