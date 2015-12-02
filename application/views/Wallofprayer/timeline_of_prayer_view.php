@@ -131,6 +131,13 @@
 	<?php  $this->load->view('tq_footer'); ?>	
 	<script>
 		$(function(){
+			var current_total = $(".current_total").val();	
+
+			if(current_total <=10 ){
+				$(".laod_more").hide();
+			}
+
+
 			$("#more_loading").click(function(){
 			var current_page = $(".current_page").val();	
 			// console.log(current_page);
