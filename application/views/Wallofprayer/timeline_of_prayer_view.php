@@ -119,7 +119,7 @@
 					</ul>
 				</div><!-- /.col -->
 				<br>
-				<div class="col-md-4 col-md-offset-4">					
+				<div class="col-md-4 col-md-offset-4 laod_more">					
 					  <button type="button" id="more_loading" class="btn btn-primary btn-sm  btn-block">加载更多..</button>
 					  <input type="hidden" class="current_page" value="<?php echo $page; ?>">
 					  <input type="hidden" class="current_total" value="<?php echo $total; ?>">
