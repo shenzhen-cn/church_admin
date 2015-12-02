@@ -192,7 +192,10 @@
 						if(currentPage<= totalPage){
 							$("#device").gridalicious('append', makeboxes());
 						}else{
-							alert('所有图片已加载完毕！');return;
+							
+							if(currentPage > 3){
+								alert('所有图片已加载完毕！');
+							}
 						}
 					}
 				});

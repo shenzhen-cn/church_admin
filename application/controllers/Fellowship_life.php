@@ -19,7 +19,7 @@ class Fellowship_life extends MY_Controller {
 		    $data =  $this->tq_admin_header_info();
 		    $page = $this->input->get('page');
 
-		    $data['results'] = 20;
+		    $data['results'] = 10;
 		    $data['page'] =  $page ? $page : 1;		  
 
 		    $result = doCurl(
