@@ -51,22 +51,33 @@
 									<table class="table table-bordered">
 										<tr>
 											<th>编号</th>
+											<th>成员昵称</th>
+											<th>所在小组</th>
+											<th>成员性别</th>
 											<th>注册邮箱</th>
 											<th>申请注册时间</th>
-											<th>注册链接过期时间</th>
+											<th>注册链接失效时间</th>
 											<th>是否已经注册</th>
+											<th>提交注册管理员</th>
 										</tr>
 										<?php  foreach ($results as $k => $v) {
-
-										 	$id 		    = $v->id;
+										 	$re_user_id 	= $v->re_user_id;
+										 	$group_user_id  = $v->group_user_id;
+										 	$user_nick      = $v->user_nick;
+										 	$sex            = $v->sex;
 										 	$user_name      = $v->user_name;
 										 	$status         = $v->status;
 										 	$created_url_at = $v->created_url_at;
 										 	$token_exptime  = $v->token_exptime; 
+										 	$admin_nick     = $v->admin_nick;	
+										 	$group_name     = $v->group_name;	
 										 	?>
 
-											<tr>
+											<tr class="selected_<?php echo $group_user_id;?>">
 												<td><?php 	echo $k+1; ?></td>
+												<td><?php 	echo $user_nick; ?></td>
+												<td><?php   echo $group_name; ?></td>
+												<td><?php 	echo $sex; ?></td>
 												<td><?php 	echo $user_name; ?></td>
 												<td><?php 	echo $created_url_at; ?></td>
 												<td><?php 	echo $token_exptime; ?></td>
@@ -77,6 +88,7 @@
 
 													<td><strong class="label label-danger">未注册</strong></td>
 												<?php	} ?>
+												<td><?php echo $admin_nick; ?></td>											
 											</tr>
 
 									<?php	 }?>
@@ -103,6 +115,16 @@
 	</div><!-- /.content-wrapper -->
 
 	<?php  $this->load->view('tq_footer'); ?>
+	<style type="text/css">
+	td {
+		text-align:center; /*设置水平居中*/
+		vertical-align:middle;/*设置垂直居中*/
+	}
+	th {
+		text-align:center; /*设置水平居中*/
+		vertical-align:middle;/*设置垂直居中*/
+	}
+	</style>
 
 </body>
 </html>
