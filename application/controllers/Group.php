@@ -295,8 +295,37 @@ class Group extends MY_Controller {
           echo json_encode('error');exit;
         }
         echo json_encode($odj);exit;
+    }
 
+    // update 12-19
+    public function ranking()
+    {   
 
+      if (! $this->session->userdata('access_token')) {
+
+        redirect('login','refresh');
+
+      }else{
+          
+        $data = $this->tq_admin_header_info();
+        $admin_id = $this->session->userdata('admin_id');       
+
+        $rate_of_spirituality_results = doCurl(API_BASE_LINK.'group/get_rate_of_spirituality');    
+        if ( $rate_of_spirituality_results && $rate_of_spirituality_results['http_status_code'] ==200 ) {
+            $content  =  json_decode($rate_of_spirituality_results['output']);
+            $status_code = $content->status_code;
+
+            if ($status_code == 200) {
+                $data['last_month_results'] = $content->last_month_results;                
+                $data['last_week_results'] = $content->last_week_results;                
+            }
+            
+        } else {
+            show_404();exit();
+        } 
+
+        $this->load->view('group/group_ranking_view',isset($data) ? $data : "");
+      }
     }
 
 

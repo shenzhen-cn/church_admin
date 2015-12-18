@@ -163,7 +163,14 @@
               </ul>
             </li>
 
-
+            <li class="treeview">
+              <a href="<?php  echo site_url('group/ranking'); ?>">
+                <i class="fa fa-cubes"></i>
+                <span>小组灵修排名</span>
+                <small class="label pull-right bg-red"></small>                
+              </a>
+            </li>
+              
             <li class="treeview">
               <a href="<?php  echo site_url('wall_for_photos'); ?>">
                 <i class="fa fa-users"></i>
