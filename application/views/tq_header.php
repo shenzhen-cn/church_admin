@@ -185,17 +185,26 @@
                 <small class="label pull-right bg-red"></small>
               </a>
             </li>
+            
+            <li>
+              <a href="<?php echo site_url('personal/admin'); ?>">
+                <i class="fa fa-steam"></i> <span>管理员管理</span>
+                <small class="label pull-right bg-red"></small>
+              </a>
+            </li>
 
             <li>
-              <a href="">
-                <i class="fa fa-male"></i> <span>添加用户</span>
-                <i class="fa fa-angle-left pull-right"></i>
+              <a href="<?php echo site_url('user_registered'); ?>">
+                <i class="fa  fa-user"></i> <span>用户管理</span>
+                <small class="label pull-right bg-red"></small>
               </a>
-              <ul class="treeview-menu">
-                <li><a href="<?php echo site_url('add_personal'); ?>"><i class="fa fa-circle-o"></i> 提交邮箱账号 </a></li>
-                <li><a href="<?php echo site_url('user_registered'); ?>"><i class="fa fa-circle-o"></i> 注册状态 </a></li>
-              </ul>
-            </li>
+            </li>            
+
+            <li>
+              <a href="<?php echo site_url('add_personal'); ?>">
+                <i class="fa fa-male"></i> <span>添加用户</span>
+              </a>              
+            </li>             
 
             <li class="treeview">
               <a href="#">

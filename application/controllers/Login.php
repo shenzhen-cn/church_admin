@@ -55,6 +55,7 @@ class Login extends MY_Controller {
 
 	            $this->session->set_userdata('access_token', $token);
 	            $this->session->set_userdata('admin_id', $admin_id);
+	            $this->admin_login_log($admin_id);	            
 	            redirect('home','refresh');
 			}
 

@@ -51,5 +51,19 @@ class MY_Controller extends CI_Controller
 
 		}
 	}
+
+	// update 12-21
+	public function admin_login_log($admin_id)
+	{
+		$result = doCurl(API_BASE_LINK.'tq_admin_header_info/admin_login_log?admin_id='.$admin_id);
+
+		if (isset($result) && $result['http_status_code'] == 200)
+		{
+			$contents = json_decode($result['output']);
+			$content = $contents->results;
+			return true;	
+		}    					
+	}
+		
 	
 }
