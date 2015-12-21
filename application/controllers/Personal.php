@@ -166,11 +166,12 @@ class Personal extends MY_Controller {
 			$params['member_status'] = $this->input->get('member_status');
 			$params['reg_start_time'] = $this->input->get('start_time');
 			$params['reg_end_time'] = $this->input->get('end_time');
-
 			$params['limit'] = $data['limit'];
 			$params['page'] = $data['page'];
+			var_dump($params);exit();
 			$url = API_BASE_LINK.'personal/user_registered';
 			$result = doCurl($url, $params, 'POST');
+			var_dump($result);exit;
 			if ($result && $result['http_status_code'] == 200) {
 				$content = json_decode($result['output']);
 				$status_code = $content->status_code;
