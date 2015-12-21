@@ -286,7 +286,7 @@
 			{
 				var regUserId = $(this).attr('data-reg-id');
 				$.ajax({
-					url: 'personal/remark_reg_user',
+					url: 'remark_reg_user',
 					type: 'POST',
 					dataType: 'json',
 					data: {regUserId: regUserId,remark:name},
