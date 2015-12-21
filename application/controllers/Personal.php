@@ -11,11 +11,6 @@ class Personal extends MY_Controller {
 
 	}
 
-//	public function index()
-//	{
-//		$this->load->view('personal/personal_view');
-//	}
-
 	public function setPersonalData()
 	{	
 		if (!$this->session->userdata('access_token')) {
@@ -39,9 +34,7 @@ class Personal extends MY_Controller {
 
 			$data =  $this->tq_admin_header_info();
 			$adminHead_src = $data['admin_info']->adminHead_src;
-//			var_dump($adminHead_src);exit;
 			$userHeadSrc = $this->input->post('userHeadSrc') ;
-//			var_dump($userHeadSrc);exit;
 
 
 			if(!empty($userHeadSrc) && $userHeadSrc  == $adminHead_src){
@@ -50,7 +43,6 @@ class Personal extends MY_Controller {
 				$fileInfo = $_FILES['uploadphoto'];
 				$uploadPath = "public/uploads/userHeadsrc";
 				$msg_return = uploadFiles($fileInfo,$uploadPath);
-//				var_dump($msg_return);exit;
 
 
 				if (isset($msg_return['msg']) ) {
@@ -62,7 +54,6 @@ class Personal extends MY_Controller {
 
 				if(!empty($adminHead_src)){
 					$file = '/var/www/html/church/church_admin/public/uploads/userHeadsrc/'.$adminHead_src;
-					// var_dump(file_exists($file));exit;
 					if(file_exists($file)){					
 						!unlink($file);
 					}				 
@@ -73,10 +64,8 @@ class Personal extends MY_Controller {
 			$params['admin_nick'] 	    = $this->input->post('admin_nick');
 			$params['gender'] 			= $this->input->post('gender');
 			$params['admin_id'] 		= $this->session->userdata('admin_id');
-//			var_dump($params);exit;
 			$url = API_BASE_LINK.'personal/upload_admin_photo';
 			$result = doCurl($url, $params, 'POST');
-//			var_dump($result);exit;
 
 			if ($result && $result['http_status_code'] == 200) {
 
@@ -100,7 +89,6 @@ class Personal extends MY_Controller {
 			} else {
 				show_404();exit;
 			}  
-//			echo "sdfsdf";exit;
 			redirect('setPersonalData','refresh');
 		}
 		
@@ -189,6 +177,7 @@ class Personal extends MY_Controller {
 				$status_code = $content->status_code;
 				if($status_code == 200){
 					$data['results'] = $content->results;
+					var_dump($data['results']);exit;
 				 	$data['total'] = $content->total;
 	 				$uri = '';	
 					$data['pagination'] = pagination($content->total, $data['page'], $content->results, $uri);
