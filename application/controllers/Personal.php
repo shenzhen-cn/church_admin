@@ -170,14 +170,13 @@ class Personal extends MY_Controller {
 			$params['limit'] = $data['limit'];
 			$params['page'] = $data['page'];
 			$url = API_BASE_LINK.'personal/user_registered';
-
 			$result = doCurl($url, $params, 'POST');
 			if ($result && $result['http_status_code'] == 200) {
 				$content = json_decode($result['output']);
 				$status_code = $content->status_code;
 				if($status_code == 200){
 					$data['results'] = $content->results;
-					var_dump($data['results']);exit;
+					// var_dump($data['results']);exit;
 				 	$data['total'] = $content->total;
 	 				$uri = '';	
 					$data['pagination'] = pagination($content->total, $data['page'], $content->results, $uri);
