@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 
 class Group extends MY_Controller {
 
-	 /**
+     /**
      * Constructor function
      */
     public function __construct() {
@@ -12,7 +12,7 @@ class Group extends MY_Controller {
 
     }
 
-	public function index() {
+    public function index() {
 
         if (!$this->session->userdata('access_token')) {
 
@@ -36,14 +36,11 @@ class Group extends MY_Controller {
 
             //小组的成员信息
             $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");
-//            var_dump($user_results);exit;
             if ( $user_results && $user_results['http_status_code'] ==200 ) {
                 $content  =  json_decode($user_results['output']);
                 $status_code = $content->status_code;
-//                var_dump($content);exit;
-
                 if ($status_code == 200) {
-                    $data['group_users'] = $content->results;
+                    $group_users = $content->results;
                     $data['group_name'] = $content->group_name;
                     
                 }
@@ -59,23 +56,81 @@ class Group extends MY_Controller {
                 $status_code = $content->status_code;
 
                 if ($status_code == 200) {
-                    $data['week_s_report'] = $content->results;
+                    $week_s_report = $content->results;
                     $data['week_firstday'] = $content->week_firstday;
-                    $data['week_lastday'] = $content->week_lastday;
-                    
+                    $data['week_lastday'] = $content->week_lastday;                    
+                }else{
+                    $week_s_report = null;
                 }
-                
+                    
             } else {
                 show_404();exit();
             }  
-            
 
-            $this->load->view('group/group_view' , isset($data) ? $data : "");
+          $week_s_reports = array();  
+          if (!empty($week_s_report)) {
+
+            foreach ($week_s_report as $k1 => $v1) {
+                $group_user_id = $v1->group_user_id ;
+                $arr_2 = $this->objectToArray($v1);
+                $arr_1 = $this->split_array($group_users,$group_user_id);  
+                $res_array = array_merge($arr_2,$arr_1);
+
+                $week_s_reports[] =  $res_array;
+            }   
+
+          }
+
+          usort($week_s_reports, function($a, $b) {
+                      $al = (int)$a['this_week_count'];
+                      $bl = (int)$b['this_week_count'];
+                      if ($al == $bl)
+                          return 0;
+                      return ($al > $bl) ? -1 : 1;
+                  });
+
+          $data['week_s_reports'] = $week_s_reports;         
+
+          $this->load->view('group/group_view' , isset($data) ? $data : "");
             
         }
 
-	}
+    }
+
+    function objectToArray($e){
+
+        $e=(array)$e;
+
+        foreach($e as $k=>$v){
+
+            if( gettype($v)=='resource' ) return;
+
+            if( gettype($v)=='object' || gettype($v)=='array' )
+
+                $e[$k]=(array)objectToArray($v);
+
+        }
+
+        return $e;
+
+    }
+
+    function split_array($array,$index)
+    { 
+      $temp = array();
+      foreach ($array as $k2 => $v2) {
+          $object_user_id  = $v2->user_id;
+
+          if(!empty($object_user_id) && $object_user_id == $index ){
+              $temp = $v2; 
+              break;
+          }
+      }
+
+      return $this->objectToArray($temp);
+    }    
     
+
     public function addGroup()
     {
         if (!$this->session->userdata('access_token')) {
@@ -326,6 +381,79 @@ class Group extends MY_Controller {
 
         $this->load->view('group/group_ranking_view',isset($data) ? $data : "");
       }
+    }
+    
+    public function get_user_data()
+    {
+        if (! $this->session->userdata('access_token')) {
+            redirect('login','refresh');
+        }else{   
+
+            $data = $this->tq_admin_header_info();
+            $user_id = $this->input->get("id");
+
+            // 各种数据
+            $result    = doCurl(API_BASE_LINK.'group/see_member?group_user_id='.$user_id);         
+
+            if ($result && $result['http_status_code'] == 200) {
+                $content          = json_decode($result['output']);
+                $status_code      = $content->status_code;
+
+
+                if ($status_code == 200) {
+                    $data['group_userHead_src'] = $content->results->userHead_src;                    
+                    $data['spiri_total_count'] = $content->results->spiri_total_count;
+                    $data['spiri_week_count'] = $content->results->spiri_week_count;
+                    $data['prayer_group_week_count'] = $content->results->prayer_group_week_count;
+                    $data['urgent_group_week_count'] = $content->results->urgent_group_week_count;
+                    $data['prayer_group_total_count'] = $content->results->prayer_group_total_count;
+                    $data['urgent_group_total_count'] = $content->results->urgent_group_total_count;
+                    $data['group_user_info'] = $content->results->group_user_info;
+                    $data['group_ranking_result'] = $content->results->group_ranking_result;
+                    $data['tq_ranking_result'] = $content->results->tq_ranking_result;
+                }            
+            }
+
+            //灵修日历！
+            $results = doCurl(API_BASE_LINK.'calendar/get_all_events_for_json?user_id='.$user_id);
+            if (isset($results) && $results['http_status_code'] == 200)
+            {
+                $content           = json_decode($results['output']);
+                $results            = $content->results;
+
+                $data['user_create_at']     = $results->user_create_at; 
+                $data['spirituality']       = $results->spirituality;
+                $data['prayer_for_group']   = $results->prayer_for_group;
+                $data['prayer_for_urgent']  = $results->prayer_for_urgent;
+            }
+
+            $this->load->view('group/user_data_view',isset($data) ? $data : "");
+        }
+    }
+
+    public function frozen()
+    {
+        $odj  = array();
+        $params["user_id"] = $this->input->post("selectedId");
+        $params["admin_id"] = $this->session->userdata("admin_id");
+
+        $url = API_BASE_LINK.'group/frozen_users_by_id';
+        
+        $result = doCurl($url, $params, 'POST');
+        if ($result && $result['http_status_code'] == 200) {
+            $content =json_decode($result['output']);
+            $status_code = $content->status_code; 
+
+            if($status_code == 200){
+              $odj['status'] = 200;                                       
+            }else{
+              $odj['status'] = 400;                          
+            }
+
+        }else{
+          echo json_encode('error');exit;
+        }
+        echo json_encode($odj);exit;
     }
 
 
