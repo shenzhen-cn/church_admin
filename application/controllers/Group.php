@@ -397,6 +397,7 @@ class Group extends MY_Controller {
 
             if ($result && $result['http_status_code'] == 200) {
                 $content          = json_decode($result['output']);
+                var_dump($content);exit;
                 $status_code      = $content->status_code;
 
 
