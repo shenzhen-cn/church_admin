@@ -393,12 +393,10 @@ class Group extends MY_Controller {
             $user_id = $this->input->get("id");
 
             // 各种数据
-            echo API_BASE_LINK.'group/see_member?group_user_id='.$user_id;exit;
             $result    = doCurl(API_BASE_LINK.'group/see_member?group_user_id='.$user_id);         
 
             if ($result && $result['http_status_code'] == 200) {
                 $content          = json_decode($result['output']);
-                var_dump($content);exit;
                 $status_code      = $content->status_code;
 
 
