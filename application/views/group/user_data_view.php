@@ -89,14 +89,11 @@
 				      <!-- Add the bg color to the header using any of the bg-* classes -->
 				      <div class="widget-user-header bg-yellow">
 				        <div class="widget-user-image">
-				          <?php if (!empty($userHead_src)) { ?>				            
-				               <?php if (empty($userHead_src)) {?>
-				                  <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="img-circle" alt="User Image">
-				               <?php } else { ?>
-								<img src="<?php echo $role_user_head_base_src."/$userHead_src"; ?>"  class="img-circle" alt="User Image">
-				                <?php   } ?>
-				        
-				          <?php } ?>
+			               <?php if (empty($userHead_src)) {?>
+			                  <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="img-circle" alt="User Image">
+			               <?php } else { ?>
+							<img src="<?php echo $role_user_head_base_src."/$userHead_src"; ?>"  class="img-circle" alt="User Image">
+			                <?php   } ?>				        
 				        </div><!-- /.widget-user-image -->
 				        <h3 class="widget-user-username"><?php echo $nick; ?><small>(<?php echo $sex ; ?>)</small></h3>
 				        <h5 class="widget-user-desc">
