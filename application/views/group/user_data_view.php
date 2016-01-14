@@ -15,6 +15,8 @@
 	$urgent_group_total_count = !empty($urgent_group_total_count) ? $urgent_group_total_count : "0";
 	$group_user_info 		  = isset($group_user_info) ? $group_user_info : "";
 	$user_created_at          = isset($group_user_info->user_created_at) ?  $group_user_info->user_created_at : "";
+	var_dump($user_created_at);exit;
+
 	$reg_days				  =  diffBetweenTwoDays(date("Y-m-d",strtotime($user_created_at)) ,date("Y-m-d",time())) + 1;
 
 	function diffBetweenTwoDays ($day1, $day2)
