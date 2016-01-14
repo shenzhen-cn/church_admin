@@ -45,7 +45,7 @@
 	$group_leader_id          = isset($group_user_info->group_leader_id) ?  $group_user_info->group_leader_id: "";
 	$user_id                  = isset($group_user_info->user_id) ?  $group_user_info->user_id: "";
 	$nick                     = isset($group_user_info->nick) ?  $group_user_info->nick: "";
-	$sex                      = isset($group_user_info->sex) ?  $group_user_info->sex: "";
+	$sex                      = isset($group_user_info->sex) ?  $group_user_info->sex: "男";
 	$group_ranking_result     = !empty($group_ranking_result) ? $group_ranking_result : "0";
 
 	$tq_ranking_result 		  = !empty($tq_ranking_result) ? $tq_ranking_result : "0";
