@@ -14,6 +14,7 @@
 	$prayer_group_total_count = !empty($prayer_group_total_count) ? $prayer_group_total_count : "0";
 	$urgent_group_total_count = !empty($urgent_group_total_count) ? $urgent_group_total_count : "0";
 	$group_user_info 		  = isset($group_user_info) ? $group_user_info : "";
+	var_dump($group_user_info);exit;
 	$user_created_at          = isset($group_user_info->user_created_at) ?  $group_user_info->user_created_at : "";
 	var_dump($user_created_at);exit;
 
